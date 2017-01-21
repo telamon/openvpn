@@ -19,9 +19,10 @@ RUN apk update \
 COPY openvpn_run.sh /bin/openvpn_run
 COPY healthcheck.sh /bin/healthcheck
 
-HEALTHCHECK --interval=5m --timeout=5s \
+HEALTHCHECK --interval=1m --timeout=30s \
   CMD /bin/healthcheck
 
 WORKDIR /provider
 
+ENV OVPN_FILE=client.ovpn 
 CMD ["/bin/openvpn_run"]
