@@ -5,12 +5,12 @@ services:
     build: .
     volumes:
       - "$PWD/provider:/provider"
+      #- "$PWD/hell:/provider"
     devices:
       - "/dev/net/tun:/dev/net/tun"
     cap_add:
       - NET_ADMIN
     network_mode: host
-    restart: always
     
 #!/bin/bash
 #docker run -it --rm \
